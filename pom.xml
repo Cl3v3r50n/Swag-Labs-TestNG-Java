@@ -9,15 +9,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <cucumber.version>7.12.0</cucumber.version>
         <selenium.version>4.5.0</selenium.version>
         <commons.version>2.11.0</commons.version>
-        <junit.version>4.13.2</junit.version>
         <java.faker.version>1.0.2</java.faker.version>
-        <extent.report.version>5.0.9</extent.report.version>
-        <extentreport.cucumber7.adapter>1.13.0</extentreport.cucumber7.adapter>
+        <extent.reports.version>5.0.9</extent.reports.version>
+        <extent.reports.cucumber7.adapter>1.13.0</extent.reports.cucumber7.adapter>
     </properties>
 
     <dependencies>
@@ -27,37 +27,29 @@
             <version>${cucumber.version}</version>
         </dependency>
 
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>${selenium.version}</version>
-
-    </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-http-jdk-client</artifactId>
-        <version>${selenium.version}</version>
-
-    </dependency>
-    <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>${commons.version}</version>
-
-    </dependency>
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
 
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>compile</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-http-jdk-client</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -74,14 +66,41 @@
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>${extent.report.version}</version>
+            <version>${extent.reports.version}</version>
         </dependency>
 
         <dependency>
             <groupId>tech.grasshopper</groupId>
             <artifactId>extentreports-cucumber7-adapter</artifactId>
-            <version>${extentreport.cucumber7.adapter}</version>
+            <version>${extent.reports.cucumber7.adapter}</version>
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+           <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-surefire-plugin</artifactId>
+                   <version>3.1.0</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+           </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerVersion>3.11.0</compilerVersion>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+                <version>3.11.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

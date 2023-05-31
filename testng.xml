@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Surefire suite" verbose="0">
+    <test thread-count="1" name="Surefire test" verbose="0">
+        <classes>
+            <class name="runner.runnerTest"/>
+            <class name="utils.BaseTeste"/>
+            <class name="utils.ContextoSetup"/>
+        </classes>
+    </test> <!-- Surefire test -->
+</suite> <!-- Surefire suite -->

@@ -1,8 +1,9 @@
 package pageObjects;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;

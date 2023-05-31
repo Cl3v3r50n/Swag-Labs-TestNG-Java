@@ -1,9 +1,9 @@
 package pageObjects;
 
 import com.github.javafaker.Faker;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import utils.DadosFakes;
 
 public class PagamentoPage {
