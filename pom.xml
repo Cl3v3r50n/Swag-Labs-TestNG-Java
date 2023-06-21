@@ -18,6 +18,9 @@
         <java.faker.version>1.0.2</java.faker.version>
         <extent.reports.version>5.0.9</extent.reports.version>
         <extent.reports.cucumber7.adapter>1.13.0</extent.reports.cucumber7.adapter>
+        <slf4j.version>2.0.7</slf4j.version>
+        <compiler.Version>3.11.0</compiler.Version>
+        <surefire.version>3.1.0</surefire.version>
     </properties>
 
     <dependencies>
@@ -75,6 +78,19 @@
             <version>${extent.reports.cucumber7.adapter}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -82,7 +98,7 @@
            <plugin>
                    <groupId>org.apache.maven.plugins</groupId>
                    <artifactId>maven-surefire-plugin</artifactId>
-                   <version>3.1.0</version>
+                   <version>${maven.surefire.version}</version>
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
@@ -92,13 +108,13 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
                 <configuration>
-                    <compilerVersion>3.11.0</compilerVersion>
-                    <source>8</source>
-                    <target>8</target>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
-                <version>3.11.0</version>
             </plugin>
         </plugins>
     </build>
